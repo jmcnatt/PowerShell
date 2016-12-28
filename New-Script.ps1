@@ -70,6 +70,7 @@ process
 
     Write-Host "File name will be `"$Name`""
 
+    # Check to see if the provided location is valid
     if (-not (Test-Path -Path $Location))
     {
         Write-Host "The path `"$Location`" is invalid"
@@ -84,6 +85,7 @@ process
 
     Write-Host "Target location is `"$Location`""
 
+    # Check to see if the file exists
     if ([bool] (Test-Path -Path ($Location + $Name)))
     {
         Write-Warning "The file `"$Name`" exists."
@@ -97,8 +99,10 @@ process
 
     Write-Host "Creating new script file `"$Location$Name `""
 
+    # Create the file
     Out-File -FilePath ($Location + $Name) -InputObject $Output
 
+    # Test to see if the file creation was successful
     if ([bool] (Test-Path -Path ($Location + $Name)))
     {
         Write-Host "`"$Location$Name`" created."
