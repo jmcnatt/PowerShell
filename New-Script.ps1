@@ -80,7 +80,7 @@ process
     # Append the backslash if needed
     if (-not ($Location.Substring($Location.Length - 1) -eq '\'))
     {
-        $Location = $Location + '\'
+        $Location += '\'
     }
 
     Write-Host "Target location is `"$Location`""
