@@ -76,7 +76,13 @@ process
         Exit 1
     }
 
-    if ([bool] (Test-Path -Path $Name))
+    # Append the backslash if needed
+    if (-not $Location.Substring($Location.Length, $Location.Length - 1) -eq '\')
+    {
+        $Location + '\'
+    }
+
+    if ([bool] (Test-Path -Path ($Location + $Name))
     {
         Write-Warning "The file `"$Name`" exists."
         $Choice = Read-host -Prompt "Overwrite?"
