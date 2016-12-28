@@ -87,7 +87,7 @@ process
     if ([bool] (Test-Path -Path ($Location + $Name)))
     {
         Write-Warning "The file `"$Name`" exists."
-        $Choice = Read-host -Prompt "Overwrite?"
+        $Choice = Read-Host -Prompt "Overwrite?"
 
         if ($Choice -notlike "y*") 
         { 
