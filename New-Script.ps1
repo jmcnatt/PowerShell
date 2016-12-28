@@ -1,10 +1,22 @@
 ﻿<#
     .SYNOPSIS
-    Generates a new powershell script
+    Generates a new powershell script.
 
     .DESCRIPTION
     This script can be used to create new scripts via a template. The template is built into the script
     and can be editted as needed.
+
+    .PARAMETER Name
+    The file name of the script to be created.
+
+    .PARAMETER location
+    The file system location where the script should be created.
+
+    .EXAMPLE
+    New-Script -Name 'Do-Something'
+
+    .EXAMPLE
+    New-Script -Name 'Do-Something' -Location C:\foo
 
 #>
 
