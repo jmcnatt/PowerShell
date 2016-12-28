@@ -71,7 +71,7 @@ process
     Write-Host "File name will be `"$Name`""
 
     # Check to see if the provided location is valid
-    if (-not (Test-Path -Path $Location))
+    if ($Location -and (-not (Test-Path -Path $Location)))
     {
         Write-Host "The path `"$Location`" is invalid"
         Exit 1
