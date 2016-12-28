@@ -25,11 +25,11 @@ begin
    $Output = @"
 <#
     .SYNOPSIS
-
+    
     .DESCRIPTION
-
+    
     .PARAMETER
-
+    
     .EXAMPLE
 
 #>
