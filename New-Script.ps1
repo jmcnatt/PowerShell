@@ -77,10 +77,12 @@ process
     }
 
     # Append the backslash if needed
-    if (-not $Location.Substring($Location.Length, $Location.Length - 1) -eq '\')
+    if (-not $Location.Substring($Location.Length -1, 1) -eq '\')
     {
         $Location + '\'
     }
+
+    Write-Host "Target location is `"$Location`""
 
     if ([bool] (Test-Path -Path ($Location + $Name)))
     {
@@ -90,7 +92,7 @@ process
         if ($Choice -notlike "y*") { Exit 1 }
     }
 
-    Out-File -FilePath $Name -InputObject $Output
+    #Out-File -FilePath $Name -InputObject $Output
 
     if ([bool] (Test-Path -Path $Name))
     {
