@@ -62,13 +62,13 @@ end
 
 process
 {
-    Write-Host "Creating new script file `"$Name`""
-
     if ($Name -notlike "*.ps1")
     {
         Write-Host "Appending .ps1 to file name"
         $Name += '.ps1'
     }
+
+    Write-Host "File name will be `"$Name`""
 
     if (-not (Test-Path -Path $Location))
     {
@@ -77,9 +77,9 @@ process
     }
 
     # Append the backslash if needed
-    if (-not $Location.Substring($Location.Length -1, 1) -eq '\')
+    if (-not ($Location.Substring($Location.Length - 1) -eq '\'))
     {
-        $Location + '\'
+        $Location = $Location + '\'
     }
 
     Write-Host "Target location is `"$Location`""
