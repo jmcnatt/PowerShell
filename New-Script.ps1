@@ -14,7 +14,10 @@ param
 (
     [Parameter(Position = 0, Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
-    [String] $Name
+    [String] $Name,
+
+    [Parameter(Position = 1, Mandatory = $false)]
+    [String] $Path
 )
 
 begin
