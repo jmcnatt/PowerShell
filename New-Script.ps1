@@ -13,10 +13,10 @@
     The file system location where the script should be created.
 
     .EXAMPLE
-    New-Script -Name 'Do-Something'
+    New-Script.ps1 -Name 'Do-Something'
 
     .EXAMPLE
-    New-Script -Name 'Do-Something' -Location C:\foo
+    New-Script.ps1 -Name 'Do-Something' -Location 'C:\foo'
 
 #>
 
