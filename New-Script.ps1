@@ -102,7 +102,6 @@ process
     if ([bool] (Test-Path -Path $Name))
     {
         Write-Host "`"($Location + $Name)`" created."
-        psedit $Name
     }
 }
 
