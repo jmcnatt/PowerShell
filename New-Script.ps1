@@ -95,13 +95,13 @@ process
         }
     }
 
-    Write-Host "Creating new script file `"($Location + $Name)`""
+    Write-Host "Creating new script file `"$Location$Name `""
 
-    Out-File -FilePath $Name -InputObject $Output
+    Out-File -FilePath ($Location + $Name) -InputObject $Output
 
-    if ([bool] (Test-Path -Path $Name))
+    if ([bool] (Test-Path -Path ($Location + $Name)))
     {
-        Write-Host "`"($Location + $Name)`" created."
+        Write-Host "`"$Location$Name`" created."
     }
 }
 
