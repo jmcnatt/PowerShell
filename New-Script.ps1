@@ -17,7 +17,7 @@ param
     [String] $Name,
 
     [Parameter(Position = 1, Mandatory = $false)]
-    [String] $Path
+    [String] $Location
 )
 
 begin
@@ -61,7 +61,9 @@ end
 }
 
 process
-{    
+{
+    Write-Host "Creating new script file `"$Name`""
+        
     if ($Name -notlike "*.ps1")
     {
         Write-Host "Appending .ps1 to file name"
