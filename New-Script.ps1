@@ -63,11 +63,17 @@ end
 process
 {
     Write-Host "Creating new script file `"$Name`""
-        
+
     if ($Name -notlike "*.ps1")
     {
         Write-Host "Appending .ps1 to file name"
         $Name += '.ps1'
+    }
+
+    if (-not (Test-Path -Path $Location))
+    {
+        Write-Host "The path `"$Location`" is invalid"
+        Exit 1
     }
 
     if ([bool] (Test-Path -Path $Name))
@@ -75,7 +81,7 @@ process
         Write-Warning "The file `"$Name`" exists."
         $Choice = Read-host -Prompt "Overwrite?"
 
-        if ($Choice -notlike "y*") { Exit }
+        if ($Choice -notlike "y*") { Exit 1 }
     }
 
     Out-File -FilePath $Name -InputObject $Output
