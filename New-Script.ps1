@@ -89,10 +89,13 @@ process
         Write-Warning "The file `"$Name`" exists."
         $Choice = Read-host -Prompt "Overwrite?"
 
-        if ($Choice -notlike "y*") { Exit 1 }
+        if ($Choice -notlike "y*") 
+        { 
+            Exit 1
+        }
     }
 
-    #Out-File -FilePath $Name -InputObject $Output
+    Out-File -FilePath $Name -InputObject $Output
 
     if ([bool] (Test-Path -Path $Name))
     {
