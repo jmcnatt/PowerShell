@@ -21,21 +21,37 @@
     The script will error if Start is less than 0.
     The script will error if End is greater than the total number of elements in the array.
 
-    .EXAMPLE
-    Move-ArrayItems.ps1 -InputObject @('a', 'b', 'c', 'd', 'e') -Start 2 -End 4
+    .INPUTS
+    None. This script does not accept input from the pipeline.
 
+    .OUTPUTS
+    System.Object An array whose elements have been moved.
+
+    .EXAMPLE
+    .\Move-ArrayItems.ps1 -InputObject @('a', 'b', 'c', 'd', 'e') -Start 2 -End 4
+    a
+    b
+    e
+    d
+    c
+
+    .LINK
+    Jimmy McNatt on GitHub: https://github.com/jmcnatt/PowerShell
 #>
 [CmdletBinding()]
 
 param (
-    [Parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
-    [Object[]]
+    # The array of elements
+    [Parameter(Mandatory = $true)]
+    [System.Object[]]
     $InputObject,
 
+    # The starting position of elements to reverse
     [Parameter(Mandatory = $true)]
     [Int]
     $Start,
 
+    # The ending position of elements to reverse
     [Parameter(Mandatory = $true)]
     [Int]
     $End
